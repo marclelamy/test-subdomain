@@ -6,16 +6,6 @@ const nextConfig: NextConfig = {
         return {
             beforeFiles: [
                 {
-                    source: '/:path*',
-                    has: [
-                        {
-                            type: 'host',
-                            value: 'app.localhost:3000',
-                        },
-                    ],
-                    destination: '/app/:path*',
-                },
-                {
                     source: '/:path*', 
                     has: [
                         {
