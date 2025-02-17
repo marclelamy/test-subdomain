@@ -22,7 +22,6 @@ export const updateSession = async (request: NextRequest) => {
                     sameSite: 'lax',
                     path: '/',
                     maxAge: 60 * 60 * 24 * 30,
-                    httpOnly: true,
                 },
                 cookies: {
                     getAll() {
