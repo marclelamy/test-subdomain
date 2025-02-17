@@ -17,7 +17,7 @@ export const updateSession = async (request: NextRequest) => {
             process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
             {
                 cookieOptions: {
-                    domain: process.env.NODE_ENV === 'development' ? '.localhost' : '.tryblend.ai',
+                    domain: process.env.NODE_ENV === 'development' ? '.localhost' : '.sortmyfilm.com',
                     secure: process.env.NODE_ENV !== 'development',
                     sameSite: 'lax',
                     path: '/',
@@ -40,7 +40,7 @@ export const updateSession = async (request: NextRequest) => {
                                 name,
                                 value,
                                 ...options,
-                                domain: process.env.NODE_ENV === 'development' ? '.localhost' : '.tryblend.ai'
+                                domain: process.env.NODE_ENV === 'development' ? '.localhost' : '.sortmyfilm.com'
                             });
                         });
                     },
