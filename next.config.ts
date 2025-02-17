@@ -1,25 +1,32 @@
-// next.config.ts
-import type { NextConfig } from "next"
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    async rewrites() {
-        return {
-            beforeFiles: [
-                {
-                    source: '/:path*', 
-                    has: [
-                        {
-                            type: 'host',
-                            value: 'app.sortmyfilm.com',
-                        },
-                    ],
-                    destination: '/app/:path*',
-                }
-            ],
-            afterFiles: [],
-            fallback: []
-        }
-    }
-}
+  distDir: `.next-${process.env.SUBDOMAIN}`, // Set custom distribution directory
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*', // Or specify exact domains if needed
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, PUT, DELETE, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'X-Requested-With, Content-Type, Accept, Origin, Authorization',
+          },
+          {
+            key: 'Access-Control-Allow-Credentials',
+            value: 'true',
+          },
+        ],
+      },
+    ];
+  },
+};
 
-export default nextConfig
+export default nextConfig;
