@@ -15,6 +15,16 @@ const nextConfig: NextConfig = {
                     ],
                     destination: '/app/:path*',
                 },
+                {
+                    source: '/:path*', 
+                    has: [
+                        {
+                            type: 'host',
+                            value: 'app.sortmyfilm.com',
+                        },
+                    ],
+                    destination: '/app/:path*',
+                }
             ],
             afterFiles: [],
             fallback: []
